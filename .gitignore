@@ -1,0 +1,7 @@
+node_modules
+dist
+test
+\.nyc_output
+coverage
+public
+.env

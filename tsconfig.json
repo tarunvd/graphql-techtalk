@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es5",
+    "outDir": "dist",
+    "lib": ["es6", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "types": ["reflect-metadata"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "jsx": "react",
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules",
+    "src/app/**/*.test.ts",
+    "src/server/**/*.test.ts"
+  ]
+}

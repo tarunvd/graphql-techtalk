@@ -1,0 +1,14 @@
+{
+    "extends": [
+        "neworbit-tslint-config"
+    ],
+    "rules": {
+        "ordered-imports": [
+            true,
+            {
+                "grouped-imports": true,
+                "import-sources-order": "any"
+            }
+        ]
+    }
+}
