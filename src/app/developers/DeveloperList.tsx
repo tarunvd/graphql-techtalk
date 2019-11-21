@@ -12,6 +12,9 @@ const GET_DEVELOPERS = gql`
             _id
             title
             name
+            projects(current: true) {
+                name
+            }
         }
     }
 `;
@@ -31,7 +34,8 @@ const DeveloperList: React.FunctionComponent<RouteComponentProps> = () => {
     const developers = data?.developers.map(d => ({
         key: d._id,
         header: d.name,
-        headerMedia: d.title
+        headerMedia: d.title,
+        content: d.projects?.[0]?.name
     })) ?? [];
 
     return (

@@ -1,9 +1,11 @@
 import {
     Arg,
+    FieldResolver,
     ID,
     Mutation,
     Query,
-    Resolver
+    Resolver,
+    Root
 } from "type-graphql";
 
 import { Developer, DeveloperModel } from "./Developer";
@@ -19,6 +21,20 @@ export class DeveloperResolver {
         return await DeveloperModel.find(filter);
     }
 
+    @FieldResolver()
+    public projects(
+        @Root() developer: Developer,
+        @Arg("current", { nullable: true }) current?: boolean
+    ) {
+        let projects = developer.projects ?? [];
+
+        if (current != null) {
+            projects = projects.filter(p => p.current === current);
+        }
+
+        return projects;
+    }
+
     @Mutation(returns => Developer)
     public async createDeveloper(
         @Arg("title") title: string,
@@ -26,7 +42,8 @@ export class DeveloperResolver {
     ) {
         const newDeveloper = new DeveloperModel({
             title,
-            name
+            name,
+            projects: [],
         });
 
         return await newDeveloper.save();
@@ -58,5 +75,12 @@ export class DeveloperResolver {
 
         const result = await DeveloperModel.findByIdAndUpdate(id, { projects: [], fired: true }, { new: true });
         return result?.fired ?? false;
+    }
+
+    @Mutation(returns => Boolean)
+    public async deleteDeveloper(@Arg("id", type => ID) id: string): Promise<boolean> {
+
+        const result = await DeveloperModel.findById(id).remove().exec();
+        return result.deletedCount === 1;
     }
 }
