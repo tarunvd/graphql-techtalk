@@ -38,3 +38,10 @@ npm start
 
 - The server will restart if you make changes
 - The app will live reload if you make changes
+
+### Some ideas
+
+- Add another type
+- Store projects in there own collection and modify the field resolver to load them
+- Add components to display individual developer with more details
+- Rewrite the back end in .NET with [Hot Chocolate](https://hotchocolate.io/)
