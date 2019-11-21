@@ -14,7 +14,9 @@ const init = async () => {
         resolvers: [
             DeveloperResolver
         ],
-        // emitSchemaFile: true
+        emitSchemaFile: {
+            commentDescriptions: true
+        }
     });
 
     const apolloServer = new ApolloServer({
