@@ -2,7 +2,7 @@ import * as React from "react";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import { Box, Flex, FlexItem, Menu, Segment } from "@stardust-ui/react";
 
-import { TodoList } from "./todos/TodoList";
+import { Developers } from "./developers/Developers";
 
 export const App: React.FC = () => (
     <section>
@@ -21,7 +21,7 @@ export const App: React.FC = () => (
                 <FlexItem grow styles={{ position: "relative" }}>
                     <div>
                         <Box styles={{ position: "absolute", height: "100%", width: "60%", marginLeft: "20%" }}>
-                            <Route exact path="/" component={TodoList} />
+                            <Route exact path="/" component={Developers} />
                         </Box>
                     </div>
                 </FlexItem>

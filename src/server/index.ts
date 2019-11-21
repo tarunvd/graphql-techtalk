@@ -3,8 +3,8 @@ import { buildSchema } from "type-graphql";
 import { ApolloServer } from "apollo-server";
 
 import { connect } from "./db";
-import { TodoResolver } from "./todos/TodoResolver";
 import { log } from "./log";
+import { DeveloperResolver } from "./developers/DeveloperResolver";
 
 const init = async () => {
 
@@ -12,7 +12,7 @@ const init = async () => {
 
     const schema = await buildSchema({
         resolvers: [
-            TodoResolver
+            DeveloperResolver
         ]
     });
 

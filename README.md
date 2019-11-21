@@ -1,0 +1,33 @@
+# GraphQL Demo
+
+## Dependencies
+
+This project uses MongoDB.  The easiest way to install this is with chocolatey:
+
+```cmd
+choco install mongodb
+```
+
+## Startup
+
+Install dependencies
+
+```cmd
+npm install
+```
+
+And start the app:
+
+```cmd
+npm start
+```
+
+## Browse
+
+- The GraphQL playground should be available on [http://localhost:5000/graphql](http://localhost:5000/graphql)
+- The app should be available on [http://localhost:5001/](http://localhost:5001/)
+
+## Hack away!
+
+- The server will restart if you make changes
+- The app will live reload if you make changes
