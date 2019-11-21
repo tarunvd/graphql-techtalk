@@ -17,7 +17,7 @@ Install packages:
 npm install
 ```
 
-## VS Code Tools
+### VS Code Tools (optional)
 
 For a better developer experience you will want to install the [GraphQL for VSCode](https://marketplace.visualstudio.com/items?itemName=kumar-harsh.graphql-for-vscode) extension.  This has a dependency on Watchman, instructions for installing this can be found [here](https://facebook.github.io/watchman/docs/install.html#binary-downloads-for-linux-macos-and-windows-beta).
 
