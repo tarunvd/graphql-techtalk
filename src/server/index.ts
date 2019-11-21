@@ -13,7 +13,8 @@ const init = async () => {
     const schema = await buildSchema({
         resolvers: [
             DeveloperResolver
-        ]
+        ],
+        // emitSchemaFile: true
     });
 
     const apolloServer = new ApolloServer({

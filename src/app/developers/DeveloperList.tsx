@@ -1,6 +1,6 @@
 import * as React from "react";
 import gql from "graphql-tag";
-import { List, Button } from "@stardust-ui/react";
+import { Button, List } from "@stardust-ui/react";
 import { useQuery } from "react-apollo";
 import { Link, RouteComponentProps } from "react-router-dom";
 

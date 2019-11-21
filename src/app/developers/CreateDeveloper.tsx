@@ -1,10 +1,10 @@
 import * as React from "react";
-import { ShorthandValue, FormFieldProps, InputProps, Input, Form, Button } from "@stardust-ui/react";
+import { Button, Form, FormFieldProps, Input, InputProps, ShorthandValue } from "@stardust-ui/react";
 import gql from "graphql-tag";
-
-import { Developer } from "../../server/developers/Developer";
 import { useMutation } from "react-apollo";
 import { useHistory } from "react-router-dom";
+
+import { Developer } from "../../server/developers/Developer";
 
 const CREATE_DEVELOPER = gql`
     mutation CreateDeveloper(
@@ -12,8 +12,8 @@ const CREATE_DEVELOPER = gql`
         $name: String!
     ) {
         createDeveloper(
-            title: $title,
             name: $name
+            title: $title
         ) {
             _id
         }

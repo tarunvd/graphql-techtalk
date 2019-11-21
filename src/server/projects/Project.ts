@@ -11,4 +11,8 @@ export class Project {
     @Field()
     @prop()
     public client: string;
+
+    @Field()
+    @prop()
+    public current: boolean;
 }

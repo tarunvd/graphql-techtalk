@@ -1,13 +1,10 @@
 import * as React from "react";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { DeveloperList } from "./DeveloperList";
 import { CreateDeveloper } from "./CreateDeveloper";
 
-interface DevelopersProps {}
-
-const Developers: React.FunctionComponent<DevelopersProps> = ({}) => (
-
+const Developers: React.FunctionComponent = () => (
     <Router>
         <Route path="/add" component={CreateDeveloper} />
         <Route exact path="/" component={DeveloperList} />

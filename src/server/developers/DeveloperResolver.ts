@@ -1,15 +1,23 @@
-import { Query, Resolver, Mutation, Arg, ID } from "type-graphql";
+import {
+    Arg,
+    ID,
+    Mutation,
+    Query,
+    Resolver
+} from "type-graphql";
 
 import { Developer, DeveloperModel } from "./Developer";
 
-@Resolver()
+@Resolver(of => Developer)
 export class DeveloperResolver {
 
     @Query(returns => [Developer])
-    public async developers() {
-        return await DeveloperModel.find().exec();
+    public async developers(
+        @Arg("project", { nullable: true }) project?: string
+    ) {
+        const filter = project !== undefined ? { "projects.name": project } : {};
+        return await DeveloperModel.find(filter);
     }
-
 
     @Mutation(returns => Developer)
     public async createDeveloper(
@@ -28,7 +36,8 @@ export class DeveloperResolver {
     public async assignDeveloperProject(
         @Arg("id", type => ID) id: string,
         @Arg("client") client: string,
-        @Arg("name") name: string
+        @Arg("name") name: string,
+        @Arg("current", { nullable: true }) current: boolean = false
     ) {
         const developer = await DeveloperModel.findById(id).exec();
 
@@ -36,7 +45,8 @@ export class DeveloperResolver {
 
         projects.push({
             client,
-            name
+            name,
+            current
         });
 
         await developer?.updateOne({ projects }).exec();
