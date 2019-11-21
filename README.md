@@ -43,5 +43,6 @@ npm start
 
 - Add another type
 - Store projects in there own collection and modify the field resolver to load them
+- Add an update developer mutation (hint you might need an [input object type](https://typegraphql.ml/docs/resolvers.html#input-types))
 - Add components to display individual developer with more details
 - Rewrite the back end in .NET with [Hot Chocolate](https://hotchocolate.io/)
