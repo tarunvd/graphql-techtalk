@@ -42,6 +42,7 @@ const DeveloperList: React.FunctionComponent<RouteComponentProps> = () => {
         <>
             <List items={developers} />
             <Button content="Add developer" as={Link} to="/add" />
+            <Button content="Update developer" as={Link} to="/update" />
         </>
     );
 };

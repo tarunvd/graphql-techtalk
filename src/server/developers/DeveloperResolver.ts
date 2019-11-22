@@ -83,4 +83,17 @@ export class DeveloperResolver {
         const result = await DeveloperModel.findById(id).remove().exec();
         return result.deletedCount === 1;
     }
+    
+    @Mutation(returns => Developer)
+    public async updateDeveloper(
+        @Arg("id", type => ID) id: string,
+        @Arg("name") name: string,
+        @Arg("title") title: string,
+    ) {
+        const developer = await DeveloperModel.findById(id).exec();
+
+        await developer?.updateOne({ name, title }).exec();
+        return developer;
+    }
+
 }
